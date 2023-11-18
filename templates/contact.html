@@ -1,10 +1,181 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Contact</title>
+    <style>
+        body{
+            font-family: 'poppins', sans-serif;
+            background: url("{% static 'imgs/Cabin Woods.png' %}") no-repeat;
+            background-size: cover;
+        }
+        .navbar {
+
+            background: rgba(0, 0, 0, 0.4);
+            top: 5%;
+            position: fixed;
+            width: 50%;
+            left: 25%;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            font-weight: 800;
+            z-index: 2;
+            transition: top 0.3s; /* Add transition for smooth movement */
+        }
+
+
+        nav {
+            padding: 1%;
+            font-size: 1.25rem;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        li {
+            list-style-type: none;
+            padding: 10px;
+            transition: 0.5s ease;
+            border-radius: 20px;
+        }
+        li a{
+            color: rgb(186, 36, 26);
+        }
+        a {
+            text-decoration: none;
+            color: floralwhite;
+            transition: 0.5s ease;
+        }
+        a:hover{
+            color: floralwhite;
+        }
+        li:hover{
+            cursor: pointer;
+            border-radius: 20px;
+            color: white;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .socials{
+display: flex;
+    flex-direction: row;
+        background: rgba(186,36,26,0.2);
+            backdrop-filter: blur(5px);
+    transform: rotate(90deg);
+    width: 30%;
+    top: 50%;
+            left: 80%;
+    border-radius: 20px;
+    padding: 1%;
+    position: absolute;
+    justify-items: center;
+    justify-content: space-evenly;
+
+        }
+        #soc{
+            margin: 1%;
+
+        }
+        img{
+            transform: rotate(270deg);
+        }
+        form{
+            width: 40%;
+            top: 25%;
+            left: 30%;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #name{
+            margin: 2%;
+            padding: 2.5%;
+            width: 100%;
+
+        }
+        input::placeholder,textarea::placeholder{
+            text-align: center;
+            color:rgb(186,36,26) ;
+
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        input,textarea{
+            border: none;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(1px);
+            border-radius: 25px;
+        }
+        textarea{
+            height: 200px;
+            resize: none;
+        }
+        #email{
+            margin: 2%;
+            padding:2.5%;
+            width: 100%;
+        }
+        #txtarea{
+            margin: 2%;
+            padding: 1%;
+            width: 100%;
+        }
+        button{
+            margin-top: 3%;
+            width: 60%;
+            padding: 2%;
+            background: rgba(255,255,255,0.3);
+            border: none;
+            border-radius: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: rgb(186,36,26);
+            transition: 0.5s ease;
+        }
+        button:hover{
+            cursor: pointer;
+            color: floralwhite;
+            background: rgba(186,36,26,0.6);
+        }
+    </style>
 </head>
 <body>
-
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    <div class="navbar" id="navbar">
+    <nav>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'projects' %}">Projects</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+    </nav>
+</div>
+<div class="form">
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" placeholder="Name" id="name" name="name" required>
+                <input type="email" placeholder="Email" id="email" name="email" required>
+                <textarea placeholder="Reason of Contact" id="txtarea" name="reason" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+<div class="socials">
+<a href="" id="soc"><img height="32px" width="32px" src="{% static 'imgs/github.png' %}"></a>
+<a href="" id="soc"><img height="32px" width="32px" src="{% static 'imgs/linkedin.png' %}"></a>
+<a href="" id="soc"><img height="32px" width="32px" src="{% static 'imgs/email.png' %}"></a>
+<a href="" id="soc"><img height="32px" width="32px" src="{% static 'imgs/instagram.png' %}"></a>
+<a href="" id="soc"><img height="32px" width="32px" src="{% static 'imgs/twitter.png' %}"></a>
+</div>
 </body>
 </html>

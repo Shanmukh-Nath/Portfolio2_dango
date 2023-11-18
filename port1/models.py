@@ -16,6 +16,10 @@ class Projects(models.Model):
     image_url = models.CharField(max_length=99999999, null=True, blank=True)
 
 
+    def __str__(self):
+        return self.title
+
+
 class Info(models.Model):
     about = models.TextField(max_length=99999999, null=True, blank=True)
 # Create your models here.
