@@ -110,6 +110,7 @@
             left: 5%;
             top: 22%;
             font-size: 1.5rem;
+            text-align: justify;
         }
         .shp{
             width: 10%;
@@ -250,12 +251,12 @@ display: flex;
          <p class="description writer" id="des" onload="desset()"></p>
      </div>
     </div>
-    <div class="socials">
-<a href="" id="soc"><img height="32px" width="32px" src="{% static 'imgs/github.png' %}"></a>
-<a href="" id="soc"><img height="32px" width="32px" src="{% static 'imgs/linkedin.png' %}"></a>
-<a href="" id="soc"><img height="32px" width="32px" src="{% static 'imgs/email.png' %}"></a>
-<a href="" id="soc"><img height="32px" width="32px" src="{% static 'imgs/instagram.png' %}"></a>
-<a href="" id="soc"><img height="32px" width="32px" src="{% static 'imgs/twitter.png' %}"></a>
+<div class="socials">
+<a href="https://www.github.com/Shanmukh-Nath" id="soc"><img height="32px" width="32px" src="{% static 'imgs/github.png' %}"></a>
+<a href="https://www.linkedin.com/in/svsn" id="soc"><img height="32px" width="32px" src="{% static 'imgs/linkedin.png' %}"></a>
+<a href="mailto:shanmukh733@gmail.com" id="soc"><img height="32px" width="32px" src="{% static 'imgs/email.png' %}"></a>
+<a href="https://www.instagram.com/shanmukh_nath/" id="soc"><img height="32px" width="32px" src="{% static 'imgs/instagram.png' %}"></a>
+<a href="https://twitter.com/shanmukh_nath2" id="soc"><img height="32px" width="32px" src="{% static 'imgs/twitter.png' %}"></a>
 </div>
 {#    <div class="spl">#}
 {#    <iframe id="myframe" src="{% url 'bed_spline' %}"></iframe>#}
@@ -293,7 +294,7 @@ function writer() {
 
 
     var j = 0;
-    var des = `{{ fact.description|escape|safe }}`;
+    var des = `{{ fact.description|safe }}`;
     var sp = 20;
 
     function deswrite() {
