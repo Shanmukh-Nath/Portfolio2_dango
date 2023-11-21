@@ -77,7 +77,7 @@
             height: auto;
             white-space: nowrap; /* Keep everything on a single line */
             display: flex;
-            margin-top: 10%;
+            margin-top: 7%;
             overflow-x: auto; /* Enable horizontal scrolling for projects */
         }
 
@@ -126,8 +126,33 @@ display: flex;
         }
         {##so{#}
         {#    transform: rotate(270deg);#}
-        {#}#}
+        .redr{
+            display: flex;
+            {#flex-direction: row;#}
+            width: 80%;
+            left: 10%;
+            position: relative;
+            top: 2%;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #red{
+            height: 100%;
 
+        }
+        #redirect{
+
+            background: rgba(255,255,255,0.2);
+            margin: 2%;
+            padding: 8%;
+            width: 48px;
+            height: 48px;
+            transition: 0.5s ease;
+        }
+        #redirect:hover{
+            border-radius: 20px;
+            background: rgba(255,255,255,0.4);
+        }
     </style>
 </head>
 <body>
@@ -149,6 +174,14 @@ display: flex;
             {% if project.frameworks %}
                 <h3>{{ project.frameworks }}</h3>
             {% endif %}
+            <div class="redr">
+            {% if project.github_url %}
+                <a href="{{ project.github_url }}" id="red"><img height="32px" width="32px" src="{% static 'imgs/github_violet.png' %}" id="redirect"></a>
+            {% endif %}
+            {% if project.deploy_url %}
+                <a href="{{ project.github_url }}" id="red"><img height="32px" width="32px" src="{% static 'imgs/maximize.png' %}" id="redirect"></a>
+            {% endif %}
+            </div>
 
         </div>
     {% endfor %}

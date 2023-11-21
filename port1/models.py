@@ -14,6 +14,8 @@ class Projects(models.Model):
     languages = models.CharField(max_length=99999999, null=True, blank=True)
     frameworks = models.CharField(max_length=99999999, null=True, blank=True)
     image_url = models.CharField(max_length=99999999, null=True, blank=True)
+    github_url = models.CharField(max_length=99999999, null=True, blank=True)
+    deploy_url = models.CharField(max_length=99999999, null=True, blank=True)
 
 
     def __str__(self):
