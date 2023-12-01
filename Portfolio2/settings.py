@@ -95,12 +95,12 @@ DATABASES = {
 
 # DATABASES = {
 #     "default":{
-#         "ENGINE":"django.db.backends.postgresql",
-#         "NAME":"railway",
-#         "USER":"postgres",
-#         "PASSWORD":"G5g45E*cA-ecFG1fa-f5e-ggF13ADbg6",
-#         "HOST":"roundhouse.proxy.rlwy.net",
-#         "PORT":'36555',
+#         "ENGINE":"django.db.backends.mysql",
+#         "NAME":"sql5665826",
+#         "USER":"sql5665826",
+#         "PASSWORD":"vhKT8R3ije",
+#         "HOST":"sql5.freemysqlhosting.net",
+#         "PORT":"3306",
 #
 #     }
 # }
